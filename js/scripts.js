@@ -9,40 +9,40 @@ $(function () {
 
 function load_test(N){
     var numbers_tmp = [];
-    var i = 0, js_rushes = 0, php_rushes = 0, php_mt_rushes = 0;
+    var i = 0, js_runs = 0, php_runs = 0, php_mt_runs = 0;
 
     for(i = 0; i < N; i++){
         numbers_tmp[i] = Math.round(Math.random() * 10);
     }
 
-    js_rushes = get_rushes(numbers_tmp);
+    js_runs = get_runs(numbers_tmp);
 
     $.get("php_rand.php", {qnt: N}, function(res){
         res = JSON.parse(res);
-        php_rushes = get_rushes(res.rand);
-        php_mt_rushes = get_rushes(res.mt_rand);
+        php_runs = get_runs(res.rand);
+        php_mt_runs = get_runs(res.mt_rand);
 
-        load_chart(N, js_rushes, php_rushes, php_mt_rushes, js_rushes, php_rushes);
+        load_chart(N, js_runs, php_runs, php_mt_runs, js_runs, php_runs);
     });
 }
 
 /**
- * return rushes from array of random-generated numbers
+ * return runs from array of random-generated numbers
  */
-function get_rushes(numbers){
+function get_runs(numbers){
     var up_down = [];
-    var rushes = 0;
+    var runs = 0;
     for(i = 0; i < numbers.length - 1; i++){
         up_down[i] = numbers[i] > numbers[i+1] ? 0 : 1;
     }
     for(i = 0; i < numbers.length - 1; i++){
-        if(up_down[i] !== up_down[i+1]) rushes++;
+        if(up_down[i] !== up_down[i+1]) runs++;
     }
-    return rushes;
+    return runs;
 }
 
 /**
- * Draw chart with rushes passed as parameters
+ * Draw chart with runs passed as parameters
  */
 function load_chart(N, js, php, php_mt, ruby, online){
     $('#chart').highcharts({
@@ -50,14 +50,14 @@ function load_chart(N, js, php, php_mt, ruby, online){
             type: "column"
         },
         title: {
-            text: "Random generators rushes"
+            text: "Random generators runs"
         },
         xAxis: {
             type: "method"
         },
         yAxis: {
             title: {
-                text: "Rushes on " + N + " numbers"
+                text: "runs on " + N + " numbers"
             }
         },
         legend: {
@@ -74,7 +74,7 @@ function load_chart(N, js, php, php_mt, ruby, online){
 
         tooltip: {
             headerFormat: "<span style=\"font-size:11px\">{series.name}</span><br>",
-            pointFormat: "<span style=\"color:{point.color}\">{point.name}</span> rushes<br/>"
+            pointFormat: "<span style=\"color:{point.color}\">{point.name}</span> runs<br/>"
         },
 
         series: [{
