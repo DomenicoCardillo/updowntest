@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Up and down random generator test</title>
+        <title>Up and down test</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
     </head>
     <body>
-        <div class="content">
-            <div id="chart" class="col-md-6 col-xs-12" style="height: 400px;"></div>
-            <div id="chart_extra" class="col-md-6 col-xs-12">
-                <div class="form-group">
-                    <span>Insert qnt of random numbers</span>
-                    <input type="text" id="N" value="100" placeholder="num" />
+        <div class="container">
+            <div class="wrapper">
+                <div class="row">
+                    <h1 class="page-title text-center">Up and down random generator test</h1>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label>Insert quantity of random number to generate</label>
+                                    <input id="N" type="text" class="form-control" value="100" placeholder="Random quantity" />
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label class="visible-lg">&nbsp;</label>
+                                    <button id="reload" class="btn btn-block btn-primary">Reload</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="chart"></div>
+                    </div>
                 </div>
-                <button id="reload" class="btn btn-primary">Reload</button>
             </div>
         </div>
 

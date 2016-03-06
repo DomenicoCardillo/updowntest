@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-N = 50
+N = 100
 randomArray = Array.new
 binaryArray = Array.new
 

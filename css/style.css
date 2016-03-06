@@ -1,0 +1,27 @@
+body,
+html,
+.container {
+    height: 100%;
+}
+
+body {
+    background-color: #F3F3F3;
+}
+
+.page-title {
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+.wrapper {
+    padding: 0 40px;
+    min-height: 100%;
+
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    background-color: #fff;
+}
+
+#chart {
+    height: 400px;
+}
