@@ -9,12 +9,11 @@ body {
 }
 
 .page-title {
-    margin-top: 50px;
     margin-bottom: 70px;
 }
 
 .wrapper {
-    padding: 0 40px;
+    padding: 50px 40px;
     min-height: 100%;
 
     border-left: 1px solid #ddd;
@@ -22,13 +21,14 @@ body {
     background-color: #fff;
 }
 
-#chart {
+#chart,
+#chart-2 {
     height: 400px;
 }
 
 /* Loader */
 .loader {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
