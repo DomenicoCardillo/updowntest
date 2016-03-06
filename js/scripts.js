@@ -8,6 +8,8 @@ $(function () {
 });
 
 function load_test(N){
+    $('.loader').fadeIn('slow');
+
     var numbers_tmp = [];
     var i = 0, js_runs = 0, php_runs = 0, php_mt_runs = 0, php_random_org_runs = 0;
 
@@ -24,6 +26,7 @@ function load_test(N){
         php_random_org_runs = get_runs(res.random_org);
 
         load_chart(N, js_runs, php_runs, php_mt_runs, js_runs, php_random_org_runs);
+        $('.loader').fadeOut('fast');
     });
 }
 
