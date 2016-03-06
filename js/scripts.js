@@ -9,7 +9,7 @@ $(function () {
 
 function load_test(N){
     var numbers_tmp = [];
-    var i = 0, js_runs = 0, php_runs = 0, php_mt_runs = 0;
+    var i = 0, js_runs = 0, php_runs = 0, php_mt_runs = 0, php_random_org_runs = 0;
 
     for(i = 0; i < N; i++){
         numbers_tmp[i] = Math.round(Math.random() * 10);
@@ -21,8 +21,9 @@ function load_test(N){
         res = JSON.parse(res);
         php_runs = get_runs(res.rand);
         php_mt_runs = get_runs(res.mt_rand);
+        php_random_org_runs = get_runs(res.random_org);
 
-        load_chart(N, js_runs, php_runs, php_mt_runs, js_runs, php_runs);
+        load_chart(N, js_runs, php_runs, php_mt_runs, js_runs, php_random_org_runs);
     });
 }
 
@@ -97,9 +98,9 @@ function load_chart(N, js, php, php_mt, ruby, online){
                 y: ruby,
                 drilldown: 'Ruby rand() FAKE'
             }, {
-                name: 'Online random FAKE',
+                name: 'Online random.org',
                 y: online,
-                drilldown: 'Online random FAKE'
+                drilldown: 'Online random.org'
             }]
         }]
     });
