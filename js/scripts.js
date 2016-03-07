@@ -44,11 +44,11 @@ function load_test(N, alpha){
         build_run_chart(N, js_runs, php_runs, php_mt_runs, js_runs, random_org_runs);
         build_critical_chart(N, js_critical, php_critical, php_mt_critical, js_critical, random_org_critical);
 
-        /* Test TODO: Print in view */
-        test(js_critical, alpha)         ? console.log('not rejected') : console.log('rejected');
-        test(php_critical, alpha)        ? console.log('not rejected') : console.log('rejected');
-        test(php_mt_critical, alpha)     ? console.log('not rejected') : console.log('rejected');
-        test(random_org_critical, alpha) ? console.log('not rejected') : console.log('rejected');
+        /* Add result in view */
+        test(js_critical, alpha)         ? $(".js-test .value").html("Not rejected!").addClass('success')         : $(".js-test .value").html("Rejected!").removeClass('success');
+        test(php_critical, alpha)        ? $(".php-test .value").html("Not rejected!").addClass('success')        : $(".php-test .value").html("Rejected!").removeClass('success');
+        test(php_mt_critical, alpha)     ? $(".php-mt-test .value").html("Not rejected!").addClass('success')     : $(".php-mt-test .value").html("Rejected!").removeClass('success');
+        test(random_org_critical, alpha) ? $(".random-org-test .value").html("Not rejected!").addClass('success') : $(".random-org-test .value").html("Rejected!").removeClass('success');
 
         $('.loader').hide();
     });
